@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuarios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="contenedor">
+        <section class="tarjeta">
+            <h1>Registro de Usuarios</h1>
+            <p class="descripcion">Interfaz web básica conectada con PHP y MySQL.</p>
+
+            <form id="usuarioForm" action="conexion.php" method="POST">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
+
+                <button type="submit">Guardar usuario</button>
+            </form>
+
+            <p id="mensaje" class="mensaje"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
