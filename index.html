@@ -3,23 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuarios</title>
+    <title>Registro de Personas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main class="contenedor">
         <section class="tarjeta">
-            <h1>Registro de Usuarios</h1>
-            <p class="descripcion">Interfaz web básica conectada con PHP y MySQL.</p>
+            <h1>Registro de Personas</h1>
+            <p class="descripcion">Formulario vinculado con la tabla de la base de datos.</p>
 
-            <form id="usuarioForm" action="conexion.php" method="POST">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+            <form id="personaForm" action="conexion.php" method="POST">
+                <table class="tabla-formulario">
+                    <tr>
+                        <th>Campo</th>
+                        <th>Dato</th>
+                    </tr>
+                    <tr>
+                        <td><label for="id_Persona">ID Persona</label></td>
+                        <td><input type="number" id="id_Persona" name="id_Persona" placeholder="Ej. 1" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Nombre">Nombre</label></td>
+                        <td><input type="text" id="Nombre" name="Nombre" maxlength="50" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="ApellidoP">Apellido paterno</label></td>
+                        <td><input type="text" id="ApellidoP" name="ApellidoP" maxlength="50" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="ApellidoM">Apellido materno</label></td>
+                        <td><input type="text" id="ApellidoM" name="ApellidoM" maxlength="50" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="FechaNacimiento">Fecha de nacimiento</label></td>
+                        <td><input type="date" id="FechaNacimiento" name="FechaNacimiento" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Curp">CURP</label></td>
+                        <td><input type="text" id="Curp" name="Curp" maxlength="18" minlength="18" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Direccion">Dirección</label></td>
+                        <td><textarea id="Direccion" name="Direccion" maxlength="80" required></textarea></td>
+                    </tr>
+                </table>
 
-                <label for="correo">Correo electrónico</label>
-                <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
-
-                <button type="submit">Guardar usuario</button>
+                <button type="submit">Guardar registro</button>
             </form>
 
             <p id="mensaje" class="mensaje"></p>
