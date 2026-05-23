@@ -1,34 +1,61 @@
 <?php
-// Archivo de conexión para InfinityFree + MySQL
-// IMPORTANTE: renombrar este archivo a conexion.php si GitHub no permite crearlo directamente.
+$Presentador = "sql105.infinityfree.com";
+$usuario = "if0_41274031";
+$contraseña = "AQUI_VA_TU_CONTRASEÑA";
+$Base_de_datos = "if0_41274031_negocio";
 
-$host = "sql105.infinityfree.com"; // Cambia XXX por el servidor MySQL de InfinityFree
-$user = "if0_41274031";            // Cambia por tu usuario MySQL
-$password = "pattyherrera26";        // Cambia por tu contraseña
-$database = "if0_41274031_negocio";      // Cambia por el nombre de tu base de datos
+$Consejera = new mysqli($Presentador, $usuario, $contraseña, $Base_de_datos);
 
-$conn = new mysqli($host, $user, $password, $database);
-
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
+if ($Consejera->connect_error) {
+    die("Error de conexión: " . $Consejera->connect_error);
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $nombre = trim($_POST["nombre"] ?? "");
-    $correo = trim($_POST["correo"] ?? "");
+    $id_Persona = trim($_POST["id_Persona"] ?? "");
+    $Nombre = trim($_POST["Nombre"] ?? "");
+    $ApellidoP = trim($_POST["ApellidoP"] ?? "");
+    $ApellidoM = trim($_POST["ApellidoM"] ?? "");
+    $FechaNacimiento = trim($_POST["FechaNacimiento"] ?? "");
+    $Curp = trim($_POST["Curp"] ?? "");
+    $Direccion = trim($_POST["Direccion"] ?? "");
 
-    if ($nombre === "" || $correo === "") {
+    if (
+        $id_Persona === "" ||
+        $Nombre === "" ||
+        $ApellidoP === "" ||
+        $ApellidoM === "" ||
+        $FechaNacimiento === "" ||
+        $Curp === "" ||
+        $Direccion === ""
+    ) {
         die("Todos los campos son obligatorios.");
     }
 
-    $stmt = $conn->prepare("INSERT INTO usuarios (nombre, correo) VALUES (?, ?)");
-    $stmt->bind_param("ss", $nombre, $correo);
+    $stmt = $Consejera->prepare(
+        "INSERT INTO Persona 
+        (id_Persona, Nombre, ApellidoP, ApellidoM, FechaNacimiento, Curp, Direccion) 
+        VALUES (?, ?, ?, ?, ?, ?, ?)"
+    );
+
+    $stmt->bind_param(
+        "issssss",
+        $id_Persona,
+        $Nombre,
+        $ApellidoP,
+        $ApellidoM,
+        $FechaNacimiento,
+        $Curp,
+        $Direccion
+    );
 
     if ($stmt->execute()) {
-        echo "Usuario guardado correctamente.";
+        echo "Registro guardado correctamente.";
     } else {
-        echo "Error al guardar usuario: " . $stmt->error;
+        echo "Error al guardar el registro: " . $stmt->error;
     }
 
     $stmt->close();
 }
+
+$Consejera->close();
+?>
