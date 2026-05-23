@@ -2,10 +2,10 @@
 // Archivo de conexión para InfinityFree + MySQL
 // IMPORTANTE: renombrar este archivo a conexion.php si GitHub no permite crearlo directamente.
 
-$host = "sqlXXX.infinityfree.com"; // Cambia XXX por el servidor MySQL de InfinityFree
-$user = "if0_usuario";            // Cambia por tu usuario MySQL
-$password = "tu_password";        // Cambia por tu contraseña
-$database = "if0_basedatos";      // Cambia por el nombre de tu base de datos
+$host = "sql105.infinityfree.com"; // Cambia XXX por el servidor MySQL de InfinityFree
+$user = "if0_41274031";            // Cambia por tu usuario MySQL
+$password = "pattyherrera26";        // Cambia por tu contraseña
+$database = "if0_41274031_negocio";      // Cambia por el nombre de tu base de datos
 
 $conn = new mysqli($host, $user, $password, $database);
 
