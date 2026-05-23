@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $stmt = $Consejera->prepare(
         "INSERT INTO Persona 
-        (id_Persona, Nombre, ApellidoP, ApellidoM, FechaNacimiento, Curp, Direccion) 
+        (id_Persona, Nombre, ApellidoP, ApellidoM, FechaNacimiento, Curp, `Dirección`) 
         VALUES (?, ?, ?, ?, ?, ?, ?)"
     );
 
