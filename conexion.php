@@ -2,7 +2,7 @@
 
 $Presentador="sql105.infinityfree.com";
 $usuario="if0_41274031";
-$contraseña="AQUI_VA_TU_CONTRASEÑA";
+$contraseña="pattyherrera26";
 $Base_de_datos="if0_41274031_negocio";
 
 $Consejera=new mysqli(
